@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<base href="res/1.2/" />
+<title>愤怒的小鸟关卡编辑器v1.2 - 小喵工作室 - MeowCat Studio</title>
+<meta name="robots" content="all" />
+<meta name="author" content="MeowCat-MlgmXyysd" />
+<meta name="Copyright" content="MeowCat Studio" />
+<meta name="keywords" content="愤怒的小鸟,关卡编辑器,Angry,Birds,AngryBirds,Angry Birds,愤怒的小鸟关卡编辑器,小喵游戏,小喵工作室,MeowCat Studio,ABLE,Level,Level Editor,Editor,Angry Birds Level Editor,AngryBirdsLevelEditor,LevelEditor" />
+<meta name="Description" content="愤怒的小鸟,关卡编辑器,Angry,Birds,AngryBirds,Angry Birds,愤怒的小鸟关卡编辑器,小喵游戏,小喵工作室,MeowCat Studio,ABLE,Level,Level Editor,Editor,Angry Birds Level Editor,AngryBirdsLevelEditor,LevelEditor">
+<!-- 页面设计：MlgmXyysd | 页面制作：MlgmXyysd | 创建：2016-12-15 | 小喵工作室：http://www.meowcat.tk/ -->
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<script type="application/javascript" src="js/blocks.js"></script>
+<script type="application/javascript" src="js/images.js"></script>
+<script type="application/javascript" src="js/able.js"></script>
+<script language="javascript">
+			function check_mobile(){var ua = navigator.userAgent;ua = ua ? ua.toLowerCase().replace(/-/g, "") : "";
+				if (ua.match(/(Android|iPhone|iPod)/i)){location.href = "mobile.html";}
+				if (ua.match(/(U;)/i)){if (ua.match(/(Adr|iPh|iPd)/i)){location.href = "mobile.html";}}//UC Browser
+			}
+			check_mobile();
+			function hand_url(){
+			var searchString = location.search;
+			var pos = searchString.indexOf ("?");
+			if (pos == 0){
+				var thislocation = document.location.href;
+				var urls = thislocation.split("?");
+				var thisurl = urls[0];
+				window.location.href = thisurl;
+			}
+			}
+			hand_url();
+		</script>
+</head>
+<body onLoad="init();check_mobile()">
+<!-- 会提取到网页源码的，对对对就是你，要不要来我工作室玩玩？QQ群号：242553005 -->
+<div id="loading" style="color: white;background-color: brown; border: solid; width: 100%; height: 20%">
+<h1>小喵正在玩命加载中，请稍候..</h1>
+</div>
+<p>把反编译得到的lua关卡脚本粘贴到下面的文本框中，并点击“加载/重载”按钮：</p>
+<textarea id="txt" cols="100">physicsToWorld = 20theme = "theme1"joints = {}birdCameraData = {    ipad = {        bottom = 122.18199920654,        left = -655.24298095703,        px = 48.054100036621,        py = -369.68798828125,        right = 1953.7199707031,        screenHeight = 768,        screenWidth = 1024,        sx = 0.72799998521805,        sy = 0.72799998521805,        top = -897.16101074219    },    iphone = {        bottom = 58.935001373291,        left = -627.74499511719,        px = 40.922298431396,        py = -355.47198486328,        right = 1921.3100585938,        screenHeight = 968,        screenWidth = 1280,        sx = 0.95712798833847,        sy = 0.95712798833847,        top = -861.15100097656    },    version = "0.02"}castleCameraData = {    ipad = {        bottom = 122.18199920654,        left = 547.12298583984,        px = 1250.4200439453,        py = -405.29098510742,        right = 1953.7199707031,        screenHeight = 768,        screenWidth = 1024,        sx = 0.72799998521805,        sy = 0.72799998521805,        top = -932.76397705078    },    iphone = {        bottom = 47.576000213623,        left = 583.97302246094,        px = 1245.1300048828,        py = -452.42401123047,        right = 1906.2900390625,        screenHeight = 968,        screenWidth = 1280,        sx = 0.96799999475479,        sy = 0.96799999475479,        top = -952.42401123047    },    version = "0.02"}counts = {    RedBird = 1,    YellowBird = 1,    WoodBlock9 = 2,    KingPiglette = 1}world = {    ground = {        angle = 0,        definition = "Ground",        name = "ground",        x = 55.188701629639,        y = 5    },    RedBird_1 = {        x = -35.44444444444444,        y = -1.3333333333333357,        name = "RedBird_1",        definition = "RedBird",        angle = 0    },    YellowBird_1 = {        x = -32.66666666666667,        y = -1.4444444444444429,        name = "YellowBird_1",        definition = "YellowBird",        angle = 0    },    WoodBlock9_1 = {        x = 62.111111111111114,        y = -2.1111111111111143,        name = "WoodBlock9_1",        definition = "WoodBlock9",        angle = 0    },    WoodBlock9_2 = {        x = 62.111111111111114,        y = -6.111111111111107,        name = "WoodBlock9_2",        definition = "WoodBlock9",        angle = 0    },    KingPiglette_1 = {        x = 62.22222222222222,        y = -11.666666666666664,        name = "KingPiglette_1",        definition = "KingPiglette",        angle = 0    }}    </textarea>
+</div>
+<p>缩放(默认6，最小2，最大10，变动一次1):</p>
+<input type="button" onClick="chgval('zoom',-1)" value="-1" />
+<input id="zoom" type="range" value="6" size="3" min="2" max="10">
+<input type="button" onClick="chgval('zoom',1)" value="+1" />
+<p>移动画布(默认400，最小-500，最大1100，变动一次100):</p>
+<input type="button" onClick="chgval('delta',-100)" value="-1" />
+<input id="delta" type="range" value="300" size="3" min="-500" max="1100">
+<input type="button" onClick="chgval('delta',100)" value="+1" />
+<p></p>
+<input type="button" onClick="levelData = parseLevel()" value="加载/重载" />
+<input type="button" onClick="alert(controls());" value="控制说明" /> 
+<input type="button" onClick="alert(help());" value="帮助" />
+<input type="button" onClick="alert(update());" value="更新说明" />
+<input type="button" onClick="saveLevel();" value="保存修改" />
+<input type="button" onClick="javascrtpt:window.location.href='download.html'" value="工具下载" />
+<div id="tscontainer" style="width:800px; overflow:scroll; background-color: silver">      <canvas id="toolset" width="3800" height="240" style="background-color: silver">你当前使用的浏览器不能使用本工具，需要IE9（或以上版本）或Firefox、chrome最新版等支持HTML5的浏览器。</canvas>    </div><br/>
+<canvas oncontextmenu="return false;" id="canvas" width="800" height="480" style="background: url(images/bg.png)"></canvas>
+<p>友情链接：<small><a href="http://tieba.baidu.com/f?kw=%B7%DF%C5%AD%B5%C4%D0%A1%C4%F1">愤怒的小鸟百度贴吧</a> <a href="http://tieba.baidu.com/f?kw=%E5%B0%8F%E5%96%B5%E5%B7%A5%E4%BD%9C%E5%AE%A4">小喵工作室百度贴吧</a></small></p>
+<p><strong>鸣谢：Q墙果 小鸟大战绿皮猪 钟声扬001</strong></p>
+<div class="mod_footer">
+		<div class="footermenu">
+				<a href="http://www.mcskins.ml/" rel="nofollow" target="_blank">小喵MC皮肤站</a> | <a href="http://www.meowcat.tk/" rel="nofollow" target="_blank">小喵工作室</a> | <a href="http://www.meowcat.890m.com/TCS/" rel="nofollow" target="_blank">贴吧云签到</a> | <a href="http://api.hostinger.com.hk/redir/12869740" rel="nofollow" target="_blank">免费空间1</a> | <a href="http://api.hostinger.com.hk/redir/11841507" rel="nofollow" target="_blank">免费空间2</a> | <a href="http://www.mctm.tk/" rel="nofollow" target="_blank">天幕服务器</a> | <a href="http://shang.qq.com/wpa/qunwpa?idkey=9dd3e893b3b037ac7aad6c2b46135551817f24a8386d2f87c3b14e7e82bf3964" rel="nofollow" target="_blank">小喵工作室QQ群</a>
+			</div>
+		<div class="copyrighten">Copyright &copy; 2014 - <span><script>document.write(new Date().getFullYear());</script></span> <a target="_blank" href="http://www.meowcat.tk/" rel="nofollow">MeowCat Studio</a> Powered by MlgmXyysd All Rights Reserved.</div>
+	<div class="copyrightzh"><a target="_blank" href="http://www.meowcat.tk/" rel="nofollow">小喵工作室</a> & <a href="http://www.meowcat.ga/" rel="nofollow" target="_blank">小喵游戏</a> 版权所有</div>
+</div>
+</body>
+</html>
